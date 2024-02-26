@@ -8,14 +8,14 @@ LDFLAGS =
 $(info Fabrication du programme : $(TARGET))
 all : $(TARGET)
 $(TARGET): $(TARGET).o $(MODULE).o
-$(LD) $@ $(LDFLAGS) $^
+	$(LD) $@ $(LDFLAGS) $^
 $(TARGET).o: $(TARGET).cpp $(MODULE).h
-$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 $(MODULE).o: $(MODULE).cpp $(MODULE).h
-$(CXX) $(CXXFLAGS) $<
+	$(CXX) $(CXXFLAGS) $<
 .PHONY: clean
 clean:
-$(RM) *.o
+	$(RM) *.o
 cleanall:
-$(RM) *.o $(TARGET)
+	$(RM) *.o $(TARGET)
 rebuild: clean all
